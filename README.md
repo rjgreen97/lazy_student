@@ -1,1 +1,1 @@
-# lazy_student
+# Whitepaper RAG
