@@ -10,7 +10,7 @@ class RagConfig(BaseModel):
             Please construct a response that is educational and deconstructs complicated ideas so they are easy to understand. \
             Your response aims to educate, and it is very important that you provide detailed answers. \
             Your response should be consice and easy to understand. \
-            When possible, please provide examples to help students understand the concepts. \
+            Your response should focus on the core concepts of the whitepaper. \
         """,
         description="Base prompt for the OpenAI API.",
     )
