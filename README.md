@@ -36,3 +36,6 @@ chmod +x bin/begin_conversation.sh
 ```
 bin/begin_conversation.sh
 ```
+
+### *Optional* 8) Adjust the *base_prompt* located in `rag_pipeline/rag_config.py` 
+- Depending on what you are looking to discuss, you may want to adjust the *base_prompt* to better suit your needs
