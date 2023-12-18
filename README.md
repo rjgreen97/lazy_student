@@ -1,5 +1,5 @@
 # Lazy Student
-## Retrieval Augmented Generation Pipeline for Whitepaper Summarization
+## Retrieval Augmented Generation Pipeline for Whitepaper Interactive Learning
 ![alt text](assets/lazy_student.png)
 ### This repository will allow you to submit a machine learning whitepaper and engage in conversations to discuss the intricacies of the paper with an LLM. 
 
