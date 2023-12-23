@@ -13,6 +13,7 @@ from llama_index import (
 from llama_index.llms import OpenAI
 from llama_index.tools import QueryEngineTool, ToolMetadata
 from llama_index.query_engine import SubQuestionQueryEngine
+import shutil
 
 from rag_pipeline.rag_config import RagConfig
 
@@ -52,16 +53,23 @@ class ResponseGenerator:
         index = VectorStoreIndex.from_documents(docs, verbose=False)
         return index
 
+    def _clear_existing_kb(self, persist_dir: Path):
+        if os.path.exists(persist_dir):
+            for file_name in os.listdir(persist_dir):
+                file_path = os.path.join(persist_dir, file_name)
+                try:
+                    if os.path.isfile(file_path):
+                        os.unlink(file_path)
+                    elif os.path.isdir(file_path):
+                        shutil.rmtree(file_path)
+                except Exception as e:
+                    print(f"Error deleting {file_path}: {e}")
+
     def _build_or_load_kb(self, kb_dir: str):
         persist_dir = Path(kb_dir) / Path("index")
-        if not os.path.exists(persist_dir):
-            index = self._build_kb(kb_dir)
-            index.storage_context.persist(persist_dir=persist_dir)
-        else:
-            index = llama_index.load_index_from_storage(
-                StorageContext.from_defaults(persist_dir=persist_dir),
-                service_context=self.service_context,
-            )
+        self._clear_existing_kb(persist_dir)
+        index = self._build_kb(kb_dir)
+        index.storage_context.persist(persist_dir=persist_dir)
         return index
 
     def _build_subquestion_engine(self):
