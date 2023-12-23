@@ -1,18 +1,16 @@
-import os
-from pathlib import Path
 from dotenv import load_dotenv
-import nest_asyncio
-import openai
-import llama_index
 from llama_index import (
     SimpleDirectoryReader,
     ServiceContext,
     VectorStoreIndex,
-    StorageContext,
 )
 from llama_index.llms import OpenAI
 from llama_index.tools import QueryEngineTool, ToolMetadata
 from llama_index.query_engine import SubQuestionQueryEngine
+from pathlib import Path
+import nest_asyncio
+import openai
+import os
 import shutil
 
 from rag_pipeline.rag_config import RagConfig
