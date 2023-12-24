@@ -28,11 +28,9 @@ uploaded_file = st.file_uploader("Upload a file:", type=["pdf"])
 
 if uploaded_file:
     if os.listdir(target_directory):
-        st.write("Deleting existing files...")
         shutil.rmtree(target_directory)
         os.makedirs(target_directory)
 
-    st.write("Adding the new file...")
     file_path = os.path.join(target_directory, uploaded_file.name)
     with open(file_path, "wb") as f:
         f.write(uploaded_file.getbuffer())
