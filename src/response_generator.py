@@ -84,6 +84,7 @@ class ResponseGenerator:
             query_engine_tools=self.query_engine_tools, verbose=False
         )
 
+    # This is an optional method to run the conversation in the command line
     def _run_cl_conversation(self):
         while True:
             print("========================================================")
