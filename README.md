@@ -1,6 +1,7 @@
 # Lazy Student
 ## Retrieval Augmented Generation Pipeline for Interactive Learning
-![alt text](assets/lazy_student.png)
+<img src="assets/lazy_student.png" alt="drawing" width="400"/>
+
 ### This repository will allow you to submit a machine learning whitepaper and engage in conversations to discuss the intricacies of the paper with an LLM. 
 
 ## Installation
@@ -16,7 +17,7 @@ pip3 install -r requirements.txt
 ```
 touch .env
 ```
-### Make sure to follow the format:
+### be sure to follow the format:
 ```
 OPENAI_API_KEY=<your key here>
 ```
