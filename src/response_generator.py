@@ -13,7 +13,7 @@ import openai
 import os
 import shutil
 
-from rag_pipeline.rag_config import RagConfig
+from src.rag_config import RagConfig
 
 load_dotenv()
 nest_asyncio.apply()

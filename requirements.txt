@@ -1,4 +1,7 @@
-llama-index==0.8.20
-nest-asyncio==1.5.6
-openai==0.28.0
-python-dotenv==1.0.0
+llama-index
+nest-asyncio
+openai
+pydantic 
+pypdf
+python-dotenv
+streamlit
