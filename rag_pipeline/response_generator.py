@@ -37,7 +37,7 @@ class ResponseGenerator:
 
     def run_conversation(self):
         while True:
-            print("===================================================================")
+            print("========================================================")
             question = input("Enter your question (type 'Exit' to end conversation): ")
 
             if question.lower() == "exit":
