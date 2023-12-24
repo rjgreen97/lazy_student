@@ -36,7 +36,7 @@ if uploaded_file:
         f.write(uploaded_file.getbuffer())
 
     filename = uploaded_file.name
-    filename_placeholder.write(f"Reference Document: {filename}")
+    filename_placeholder.write(f"Reference Document: **{filename}**")
 
 user_input = st.text_input("Enter your question:")
 if st.button('Answer'):
