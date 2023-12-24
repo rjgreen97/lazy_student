@@ -27,14 +27,9 @@ OPENAI_API_KEY=<your key here>
 - For best results, there should only ever be one whitepaper in the *knowledge_store* directory
 - It does not matter what the file is named
 
-### 6) Allow the `begin_conversation.sh` script to be executed
+### 7) Run the `run.sh` script
 ```
-chmod +x bin/begin_conversation.sh
-```
-
-### 7) Run the `begin_conversation.sh` script
-```
-bin/begin_conversation.sh
+bin/run.sh
 ```
 
 ### *Optional* 8) Adjust the *base_prompt* located in `rag_pipeline/rag_config.py` 

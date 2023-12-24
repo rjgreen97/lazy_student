@@ -35,16 +35,6 @@ class ResponseGenerator:
         response = self.sq_query_engine.query(prompt)
         return response
 
-    def run_conversation(self):
-        while True:
-            print("========================================================")
-            question = input("Enter your question (type 'Exit' to end conversation): ")
-
-            if question.lower() == "exit":
-                print("Hope you learned something!")
-                break
-            response = self.generate_response(question)
-            print(f"\n{response}\n")
 
     def _build_kb(self, kb_dir: str):
         docs = SimpleDirectoryReader(input_dir=kb_dir).load_data()
@@ -65,12 +55,21 @@ class ResponseGenerator:
 
     def _build_or_load_kb(self, kb_dir: str):
         persist_dir = Path(kb_dir) / Path("index")
+        
+        if not os.listdir(kb_dir):
+            print(f"No files found in {kb_dir}. Knowledge base will be empty.")
+            return None
+            
         self._clear_existing_kb(persist_dir)
         index = self._build_kb(kb_dir)
         index.storage_context.persist(persist_dir=persist_dir)
         return index
 
     def _build_subquestion_engine(self):
+        if self.whitepaper_kb is None:
+            print("No knowledge base available. Upload whitepapers to populate the knowledge base.")
+            return None
+
         whitepaper_engine = self.whitepaper_kb.as_query_engine()
         self.query_engine_tools = [
             QueryEngineTool(
@@ -85,8 +84,18 @@ class ResponseGenerator:
             query_engine_tools=self.query_engine_tools, verbose=False
         )
 
+    def _run_cl_conversation(self):
+        while True:
+            print("========================================================")
+            question = input("Enter your question (type 'Exit' to end conversation): ")
+
+            if question.lower() == "exit":
+                print("Hope you learned something!")
+                break
+            response = self.generate_response(question)
+            print(f"\n{response}\n")
 
 if __name__ == "__main__":
     rag_config = RagConfig()
     response_generator = ResponseGenerator(rag_config)
-    response_generator.run_conversation()
+    response_generator._run_cl_conversation()
