@@ -12,25 +12,20 @@ git clone git@github.com:rjgreen97/lazy_student.git
 ```
 pip3 install -r requirements.txt
 ```
-### 3) Create an .env file
+### 3) Create an .env file and add your OpenAI API key
 ```
 touch .env
 ```
-### 4) Add your OpenAI API key to the .env file
-#### Make sure to follow the format:
+### Make sure to follow the format:
 ```
 OPENAI_API_KEY=<your key here>
 ```
 
-### 5) Move the desired whitepaper to the *knowledge_store* directory
-- The whitepaper should be in PDF format
-- For best results, there should only ever be one whitepaper in the *knowledge_store* directory
-- It does not matter what the file is named
 
-### 7) Run the `run.sh` script
+### 4) Run the `run.sh` script
 ```
 bin/run.sh
 ```
 
-### *Optional* 8) Adjust the *base_prompt* located in `rag_pipeline/rag_config.py` 
+### *Optional* Adjust the *base_prompt* located in `src/rag_config.py` 
 - Depending on what you are looking to discuss, you may want to adjust the *base_prompt* to better suit your needs
