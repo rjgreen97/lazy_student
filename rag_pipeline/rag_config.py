@@ -14,7 +14,6 @@ class RagConfig(BaseModel):
         """,
         description="Base prompt for the OpenAI API.",
     )
-
     model_name: str = Field(
         default="gpt-3.5-turbo",
         description="Name of the OpenAI model to use.",
