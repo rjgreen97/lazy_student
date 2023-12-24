@@ -20,7 +20,7 @@ filename = find_pdf_files(target_directory)
 filename_placeholder = st.empty()
 
 if os.listdir(target_directory):
-    filename_placeholder.write(f"Reference Document: {filename}")
+    filename_placeholder.write(f"Reference Document: **{filename}**")
 else:
     filename_placeholder.write("There is currently no document uploaded.")
 
