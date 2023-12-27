@@ -39,6 +39,6 @@ if uploaded_file:
     filename_placeholder.write(f"Reference Document: **{filename}**")
 
 user_input = st.text_input("Enter your question:")
-if st.button('Answer'):
+if st.button('Ask'):
     response = response_generator.generate_response(user_input)
     st.text_area("Answer", value=response, height=300)
